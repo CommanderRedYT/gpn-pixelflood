@@ -3,8 +3,8 @@
 const net = require('net');
 const jimp = require('jimp');
 const { exit } = require('process');
-const port = 1234;
-const host = 'flood.schenklflut.de';
+const port = 1337; //1234;
+const host = '94.45.233.1'; //'flood.schenklflut.de';
 
 function rgbToPixelFlood(x, y, r, g, b) {
     // every color has to be 2 digits hex, so #fefefe => r: fe, g: fe, b: fe
@@ -53,7 +53,7 @@ async function imageToPixels(origin_x, origin_y, path) {
 // load jpg and convert into pixel flood
 async function exec() {
     console.log('Preparing to send image to pixel flood...');
-    const image = await imageToPixels(768, 0, './bobbylogo.jpg');
+    const image = await imageToPixels(0, 0, './bobbylogo.jpg');
     console.log('Starting clients...');
 
     const image1 = generatePixels(0, 0, 500, 500, { r: 255, g: 0, b: 0 });
